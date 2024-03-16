@@ -41,7 +41,17 @@ python app.py
 
 Run below command in bash terminal for MLflow demo for experiment tracking.
 ```bash
-export MLFLOW_TRACKING_URI=https://dagshub.com/<user_name>/<project_name>.mlflow \
-export MLFLOW_TRACKING_USERNAME=username \
-export MLFLOW_TRACKING_PASSWORD=yourpassword \
+export MLFLOW_TRACKING_URI=https://dagshub.com/santhoshreddybora/Chest_Disease_Classification.mlflow \
+export MLFLOW_TRACKING_USERNAME=santhoshreddybora \
+export MLFLOW_TRACKING_PASSWORD=6c55756a5f3978c955e4cc8b87c551a506b89be8 \
+python script.py
 ```
+
+
+
+
+### DVC cmd
+
+1. dvc init
+2. dvc repro
+3. dvc dag
