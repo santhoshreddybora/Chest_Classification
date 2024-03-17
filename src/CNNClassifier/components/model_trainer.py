@@ -4,7 +4,7 @@ from zipfile import ZipFile
 import tensorflow as tf
 from pathlib import Path
 from CNNClassifier.entity.config_entity import ModelTrainerConfig
-
+import shutil
 
 class Training:
     def __init__(self, config: ModelTrainerConfig):
@@ -78,3 +78,6 @@ class Training:
             path=self.config.trained_model_path,
             model=self.model
         )
+        os.makedirs(self.config.copy_of_model)
+        shutil.copy(self.config.trained_model_path,self.config.copy_of_model)
+        

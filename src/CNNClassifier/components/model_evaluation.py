@@ -5,7 +5,7 @@ import mlflow.keras
 from urllib.parse import urlparse
 from CNNClassifier.entity.config_entity import ModelEvaluationConfig
 from CNNClassifier.utils.common import read_yaml, create_directories,save_json
-
+import shutil
 
 class Evaluation:
     def __init__(self, config: ModelEvaluationConfig):
@@ -39,6 +39,10 @@ class Evaluation:
     @staticmethod
     def load_model(path:Path)->tf.keras.Model:
         return tf.keras.models.load_model(path)
+    
+
+    def copy_model(self,path:Path)->tf.keras.Model:
+        return shutil.copy(tf.keras.models.load_model(self.config.path_of_model),path)
     
     def evaluation(self):
         self.model = self.load_model(self.config.path_of_model)
