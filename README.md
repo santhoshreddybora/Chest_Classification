@@ -72,18 +72,25 @@ ECR_REPOSITORY
 AWS_ACCOUNT_ID
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
-and SSH key
+and SSH key  # need to upload data from pem file 
 
 * In 2nd EC2 instance we need to run ec2_setup.sh script one by one command 
 we need to set elastic ip so every time we restart the machine same public address will be there
 after that set below secrets key in github actions 
-URL #jenkins url.
+URL #jenkins dashboard url.
 USER # jenkins user name.
 TOKEN #API Token should be generated in jenkins.
 JOBS  # jobs name which we have given in jenkins.
 
 all set we can push changes to github and we can manually trigger jenkins workflow or you want to deploy automatically you can add below lines in place of 'on' in main.yaml 
-
+```
 on:
   push:
     branches: [main]
+```
+else the below one is to manually trigger jenkins job
+```
+on:
+  workflow_dispatch:
+```
+
